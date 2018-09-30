@@ -12,6 +12,9 @@ namespace util{
 class CCallPythonApi
 {
 public:
+	CCallPythonApi();
+	~CCallPythonApi();
+
     // 初始化python解释器
     int Initialize();
 
@@ -20,8 +23,8 @@ public:
      * @param sPath：模块目录
      * @param sModuleName：模块名称
      * @param sFuncName：函数名称
-     * @param mapParam：入参
-     * @param mapResData：出参
+     * @param vsParam：入参
+     * @param sRetParam：出参
     */
     int CallPython
     (

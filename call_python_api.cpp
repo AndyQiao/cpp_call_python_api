@@ -3,6 +3,18 @@
 namespace andy {
 namespace util {
 
+CCallPythonApi::CCallPythonApi()
+{}
+
+CCallPythonApi::~CCallPythonApi()
+{
+	// 释放模块资源
+	for (auto itr = m_mapModuleImported.begin(); m_mapModuleImported.end() != itr; ++itr)
+	{
+		Py_DECREF(itr->second);
+	}
+}
+
 int CCallPythonApi::Initialize()
 {
 	Py_Initialize();
